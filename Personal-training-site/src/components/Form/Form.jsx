@@ -10,7 +10,7 @@ function Form() {
 			<label className={styles.form__labe}>Имя*</label>
 			<input className={styles.form__input} {...register("Name", { required: "Поле обязательно для ввода", minLength: 3 })} placeholder="Имя" />
 			<label className={styles.form__labe}>Возраст*</label>
-			<input className={styles.form__input} type="number" {...register("age", {
+			<input className={styles.form__input} placeholder="Возраст" type="number" {...register("age", {
 				min: 18,
 				max: 99
 			})} />

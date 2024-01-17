@@ -5,8 +5,8 @@ function Navigation() {
 	return (
 		<nav className={styles.navigation}>
 			<a href="#">Главная</a>
-			<a href="#">Тарифы тренировок</a>
-			<a href="#">Связаться</a>
+			<a href="#services">Тарифы тренировок</a>
+			<a href="#request">Связаться</a>
 		</nav>
 	)
 }
