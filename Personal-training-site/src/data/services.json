@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"name": "Base",
+		"price": "1000 рублей",
+		"period": "Monthly",
+		"label": "Popular",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+	},
+	{
+		"id": 2,
+		"name": "Base",
+		"price": 1000,
+		"period": "Monthly",
+		"label": "Popular",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+	},
+	{
+		"id": 3,
+		"name": "Base",
+		"price": 1000,
+		"period": "Monthly",
+		"label": "Popular",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+	}
+]

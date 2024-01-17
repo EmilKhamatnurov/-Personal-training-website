@@ -1,0 +1,14 @@
+.navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+
+	& a {
+		font-family: 'Roboto', sans-serif;
+		font-size: 21px;
+		&:hover {
+			color: darkred;
+		}
+	}
+}

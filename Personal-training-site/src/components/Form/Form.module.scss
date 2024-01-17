@@ -1,0 +1,25 @@
+@import '../../common-styles/mixins';
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-bottom: 50px;
+
+	&__input {
+		@include form-input;
+	}
+
+	&__select {
+		@include form-input;
+	}
+
+	&__button {
+		padding: 15px 30px;
+		width: fit-content;
+		font-size: 21px;
+		border-radius: 30px;
+		background-color: black;
+		color: white;
+		text-transform: uppercase;
+	}
+}

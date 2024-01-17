@@ -1,0 +1,8 @@
+@import './node_modules/reset-css/reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+html,
+body {
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+	padding: 0 10px;
+}
