@@ -26,8 +26,8 @@ function Form() {
 				<option value="мужчина">Мужчина</option>
 				<option value="женщина">Женщина</option>
 			</select>
-			<label className={styles.form__labe}>Сообщение*</label>
-			<textarea className={styles.form__input} {...register("Message")} placeholder="Сообщение" />
+			{/* <label className={styles.form__labe}>Сообщение*</label>
+			<textarea className={styles.form__input} {...register("Message")} placeholder="Сообщение" /> */}
 			<input className={styles.form__button} type="submit" />
 		</form>
 	)
