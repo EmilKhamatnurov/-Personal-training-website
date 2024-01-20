@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import slides from '../../data/slides.json'
+import SliderBtn from '../Buttons/SliderBtn'
+import Container from '../Container/Container'
+import Slide from './Slide/Slide'
 import styles from './Slider.module.scss'
-
 function Slider() {
-	const slides = [
 
-	]
 	// Текущий слайд
 	const [currentSlide, setCurrentSlide] = useState(0)
 	// Функции обработки кнопок слайдера
@@ -15,19 +16,41 @@ function Slider() {
 		setCurrentSlide((currentSlide - 1 + slides.length) % slides.length)
 	}
 
+	// Автоматические переключение слайдов  Задержка 5 секунд
+	useEffect(() => {
+		const timer = setInterval(() => {
+			nextSlide()
+		}, 5000)
+		return () => clearInterval(timer)
+	}, [currentSlide])
+
 	return (
 		<div className={styles.slider}>
-			<button className={styles.slider__prevBtn} onClick={prevSlide}>
-				<img src="/prev-btn-image.png" alt="предыдущий слайд" />
-			</button>
-			<button className={styles.slider__nextBtn} onClick={nextSlide}>
-				<img src="/next-btn-image.png" alt="следующий слайд" />
-			</button>
+			<SliderBtn
+				img="/prev-btn-image.png"
+				onClick={prevSlide}
+				styleClass={styles.slider__prevBtn} />
+			<SliderBtn
+				img="/next-btn-image.png"
+				onClick={nextSlide}
+				styleClass={styles.slider__nextBtn} />
+
 			{/* Рендер слайдов */}
 			<div>
-				{slides.map((slide, index) => (
-					<div className={styles.slide} key={index} style={{ display: index === currentSlide ? 'block' : 'none' }}>
-						{slide}
+				{slides.map((slide) => (
+					<div
+						className={styles.slide} key={slide.id}
+						style={{
+							background: `url('${slide.image}') center top / cover no-repeat`,
+							transition: 'opacity 1s ease-in-out, display 1s  ease-in-out',
+							display: slide.id === currentSlide ? 'block' : 'none',
+							// opacity: slide.id === currentSlide ? 1 : 0
+						}}>
+						<Container>
+							<Slide
+								title={slide.title}
+								subtitle={slide.subtitle} />
+						</Container>
 					</div>
 				))}
 			</div>

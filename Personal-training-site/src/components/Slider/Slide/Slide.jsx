@@ -1,12 +1,13 @@
+import styles from './Slide.module.scss'
+
 function Slide({
-	text, image, link
+	title, subtitle
 }) {
-	const slideBackgroundStyle = {
-		background: `url(${image}) center center / cover no-repeat`
-	}
 	return (
-		<div style={slideBackgroundStyle} className='slide'>
-			<p className='slide__text'>{text}</p>
+		<div className={styles.slide}>
+			<p className={styles.slide__title}>{title}</p>
+			<p className={styles.slide__subtitle}>{subtitle}</p>
+			<a href='#request' className={styles.slide__button}>Связаться с нами</a>
 		</div>
 	)
 }

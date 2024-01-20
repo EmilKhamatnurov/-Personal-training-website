@@ -1,26 +1,36 @@
 [
 	{
 		"id": 1,
-		"name": "Base",
-		"price": "1000 рублей",
-		"period": "Monthly",
-		"label": "Popular",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+		"title": "Начинающий",
+		"price": "10 000",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
+		"list": [
+			"Бесплатная консультация",
+			"Поддержка после тренировок",
+			"Режим питания"
+		]
 	},
 	{
 		"id": 2,
-		"name": "Base",
-		"price": 1000,
-		"period": "Monthly",
-		"label": "Popular",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+		"title": "Средний уровень",
+		"price": "20 000",
+		"label": "popular",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
+		"list": [
+			"Бесплатная консультация",
+			"Поддержка после тренировок",
+			"Режим питания"
+		]
 	},
 	{
 		"id": 3,
-		"name": "Base",
-		"price": 1000,
-		"period": "Monthly",
-		"label": "Popular",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro"
+		"title": "Продвинутый",
+		"price": "25 000",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
+		"list": [
+			"Бесплатная консультация",
+			"Поддержка после тренировок",
+			"Режим питания"
+		]
 	}
 ]

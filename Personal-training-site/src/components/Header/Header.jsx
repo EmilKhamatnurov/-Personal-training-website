@@ -10,8 +10,7 @@ function Header() {
 		<Container>
 			<header className={styles.header}>
 				<Logo
-					logoUrl='/astro_logo.png'
-				/>
+					logoColor="black" />
 				<Navigation />
 			</header>
 		</Container>
