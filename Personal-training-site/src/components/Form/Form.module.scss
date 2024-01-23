@@ -16,10 +16,15 @@
 	&__button {
 		padding: 15px 30px;
 		width: fit-content;
+		border: none;
 		font-size: 21px;
 		border-radius: 30px;
 		background-color: black;
 		color: white;
 		text-transform: uppercase;
+		cursor: pointer;
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.7);
+		}
 	}
 }

@@ -6,25 +6,57 @@
 	position: relative;
 	&__prevBtn {
 		@include slider-btn;
-		left: 20px;
+		left: 5px;
 		top: 50%;
 	}
 
 	&__nextBtn {
 		@include slider-btn;
-		right: 20px;
+		right: 5px;
 		top: 50%;
 	}
 
 	&__pagination {
 		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 5px;
 		bottom: 10px;
-		right: 50%;
+		right: calc(50% - 25px);
+	}
+
+	&__paginationBtn {
+		width: 5px;
+		height: 3px;
+		border: none;
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	&__paginationBtn_active {
+		width: 10px;
+		height: 10px;
+		border: none;
+		background-color: rgb(255, 255, 255);
 	}
 }
 .slide {
 	height: 600px;
 	color: white;
 	&__text {
+	}
+}
+
+@media (max-width: 576px) {
+	.slider {
+		&__prevBtn {
+			@include slider-btn;
+			left: 5px;
+			top: 50%;
+		}
+
+		&__nextBtn {
+			@include slider-btn;
+			right: 5px;
+			top: 50%;
+		}
 	}
 }
