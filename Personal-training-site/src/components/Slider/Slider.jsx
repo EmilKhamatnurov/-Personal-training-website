@@ -43,6 +43,7 @@ function Slider() {
 							className={styles.slide} key={slide.id}
 							style={{
 								background: `url('${slide.image}') center top / cover no-repeat`,
+								backgroundPositionY: '-65px',
 								transition: 'opacity 1s ease-in-out, display 1s  ease-in-out',
 								display: slide.id === currentSlide ? 'block' : 'none',
 								// opacity: slide.id === currentSlide ? 1 : 0

@@ -4,12 +4,32 @@
 	align-items: center;
 	gap: 30px;
 
-	& a {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-size: 21px;
+	&__link {
+		color: rgba(0, 0, 0, 0.8);
+		font-size: 20px;
+		opacity: 0.9;
+		position: relative;
+		font-weight: 500;
+		text-transform: uppercase;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -4px;
+			height: 2px;
+			width: 0;
+			background-color: #000000;
+			transition: 0.5s ease-in-out;
+		}
+
 		&:hover {
-			color: darkred;
+			color: #1e1e2b;
+			transition: 0.5s;
+			opacity: 1;
+		}
+
+		&:hover::before {
+			width: 100%;
 		}
 	}
 }
