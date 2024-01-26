@@ -38,3 +38,11 @@
 		height: 30px;
 	}
 }
+
+@mixin text-logo {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Inter', sans-serif;
+	font-size: 32px;
+	font-weight: 700;
+}

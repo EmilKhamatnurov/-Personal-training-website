@@ -1,3 +1,14 @@
+@import '../../common-styles/mixins';
+
 .siteLogo {
 	max-width: 100px;
+}
+
+.textLogo {
+	@include text-logo;
+	color: black;
+}
+.textLogo_white {
+	@include text-logo;
+	color: white;
 }

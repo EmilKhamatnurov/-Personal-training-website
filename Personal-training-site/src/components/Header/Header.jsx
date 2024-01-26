@@ -10,7 +10,9 @@ function Header() {
 		<Container>
 			<header className={styles.header}>
 				<Logo
-					logoColor="black" />
+					text='DNKA'
+					logoColor='black'
+				/>
 				<Navigation />
 			</header>
 		</Container>

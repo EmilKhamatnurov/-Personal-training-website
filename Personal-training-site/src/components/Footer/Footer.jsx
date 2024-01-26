@@ -7,7 +7,9 @@ function Footer() {
 			<Container>
 				<div className={styles.footer__inner}>
 					<Logo
-						logoColor='white' />
+						text='DNKA'
+						logoColor='white'
+					/>
 				</div>
 			</Container>
 		</footer>
