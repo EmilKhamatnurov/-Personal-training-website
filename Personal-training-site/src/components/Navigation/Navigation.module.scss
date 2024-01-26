@@ -35,7 +35,22 @@
 }
 
 @media (max-width: 700px) {
+	// .navigation {
+	// 	display: none;
+	// }
 	.navigation {
-		display: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column-reverse;
+		gap: 10px;
+
+		&__link {
+			font-size: 16px;
+			opacity: 0.9;
+			position: relative;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
 	}
 }
