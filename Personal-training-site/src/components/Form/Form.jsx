@@ -1,25 +1,43 @@
 import emailjs from '@emailjs/browser'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
+import * as React from 'react'
 import { useForm } from "react-hook-form"
 import styles from './Form.module.scss'
-function Form({ selectedService }) {
-	const { register, handleSubmit, formState: { errors }, } = useForm()
 
+function Form({ selectedService }) {
+	// Dialog card
+	const [open, setOpen] = React.useState(false)
+	const handleClickOpen = () => {
+		setOpen(true)
+	}
+
+	const handleClose = () => {
+		setOpen(false)
+	}
+
+
+	// React Hook Form
+	const { register, handleSubmit, formState: { errors }, } = useForm()
 	const onSubmit = (data) => {
 		const userData = {
 			...data,
 			service: selectedService
 		}
-		console.log(userData, "Успешно")
 		emailjs.send(
 			'service_beqcijo', 'template_sswu9sn', userData, '_g4X_2BtwbRFLl7PY'
 		)
 			.then((response) => {
 				console.log('SUCCESS!', response.status, response.text)
+				handleClickOpen()
 			})
 			.catch((err) => {
 				console.log('FAILED...', err)
 			})
-
 	}
 
 	return (
@@ -47,10 +65,27 @@ function Form({ selectedService }) {
 				<option value="мужчина">Мужчина</option>
 				<option value="женщина">Женщина</option>
 			</select>
-			{/* <label className={styles.form__labe}>Сообщение*</label>
-			<textarea className={styles.form__input} {...register("Message")} placeholder="Сообщение" /> */}
 			<input className={styles.form__button} type="submit" />
+			<Dialog
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description"
+			>
+				<DialogTitle id="alert-dialog-title">
+					{"Уведомление"}
+				</DialogTitle>
+				<DialogContent>
+					<DialogContentText id="alert-dialog-description">
+						Ваша заявка успешно отправлена
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleClose}>Отлично</Button>
+				</DialogActions>
+			</Dialog>
 		</form>
+
 	)
 }
 
