@@ -21,7 +21,7 @@
 		display: flex;
 		align-items: center;
 		gap: 5px;
-		bottom: 10px;
+		bottom: 5%;
 		right: calc(50% - 25px);
 	}
 
@@ -57,6 +57,13 @@
 			@include slider-btn;
 			right: 5px;
 			top: 50%;
+		}
+	}
+}
+@media (max-width: 460px) {
+	.slider {
+		&__pagination {
+			bottom: 15%;
 		}
 	}
 }

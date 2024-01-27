@@ -1,13 +1,17 @@
 import emailjs from '@emailjs/browser'
 import { useForm } from "react-hook-form"
 import styles from './Form.module.scss'
-function Form() {
+function Form({ selectedService }) {
 	const { register, handleSubmit, formState: { errors }, } = useForm()
 
 	const onSubmit = (data) => {
-		console.log(data, "Успешно")
+		const userData = {
+			...data,
+			service: selectedService
+		}
+		console.log(userData, "Успешно")
 		emailjs.send(
-			'service_beqcijo', 'template_sswu9sn', data, '_g4X_2BtwbRFLl7PY'
+			'service_beqcijo', 'template_sswu9sn', userData, '_g4X_2BtwbRFLl7PY'
 		)
 			.then((response) => {
 				console.log('SUCCESS!', response.status, response.text)
