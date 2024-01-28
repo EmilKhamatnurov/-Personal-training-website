@@ -1,24 +1,31 @@
-import Dialog from '@material-ui/core/Dialog'
-import React from 'react'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
 
-export default function SimpleDialog() {
-	const [open, setOpen] = React.useState(false)
-
-	const handleClickOpen = () => {
-		setOpen(true)
-	}
-	const handleClose = () => {
-		setOpen(false)
-	}
+function Dialog({ open, handleClose, dialoguetext }) {
 
 	return (
-		<div>
-			<button onClick={handleClickOpen}>
-				Открыть диалоговое окно
-			</button>
-			<Dialog onClose={handleClose} open={open}>
-				<h2>Привет, это диалоговое окно!</h2>
-			</Dialog>
-		</div>
+		<Dialog
+			open={open}
+			onClose={handleClose}
+			aria-labelledby="alert-dialog-title"
+			aria-describedby="alert-dialog-description"
+		>
+			<DialogTitle id="alert-dialog-title">
+				{"Уведомление"}
+			</DialogTitle>
+			<DialogContent>
+				<DialogContentText id="alert-dialog-description">
+					{dialogueText}
+				</DialogContentText>
+			</DialogContent>
+			<DialogActions>
+				<Button onClick={handleClose}>Закрыть</Button>
+			</DialogActions>
+		</Dialog>
 	)
 }
+export default Dialog

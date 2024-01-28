@@ -1,25 +1,21 @@
 import emailjs from '@emailjs/browser'
-import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogTitle from '@mui/material/DialogTitle'
-import * as React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import styles from './Form.module.scss'
 
 function Form({ selectedService }) {
-	// Dialog card
-	const [open, setOpen] = React.useState(false)
-	const handleClickOpen = () => {
-		setOpen(true)
+	// SUCCESS window
+	const [openSuccessDialog, setOpenSuccessDialog] = useState(false)
+	const handleClickOpenSuccessDialog = () => {
+		setOpenSuccessDialog(true)
 	}
-
-	const handleClose = () => {
-		setOpen(false)
+	const handleCloseSuccessDialog = () => {
+		setOpenSuccessDialog(false)
 	}
-
+	// ERROR window
+	/* 
+	 */
 
 	// React Hook Form
 	const { register, handleSubmit, formState: { errors }, } = useForm()
@@ -33,7 +29,7 @@ function Form({ selectedService }) {
 		)
 			.then((response) => {
 				console.log('SUCCESS!', response.status, response.text)
-				handleClickOpen()
+				handleClickOpenSuccessDialog()
 			})
 			.catch((err) => {
 				console.log('FAILED...', err)
@@ -67,23 +63,9 @@ function Form({ selectedService }) {
 			</select>
 			<input className={styles.form__button} type="submit" />
 			<Dialog
-				open={open}
-				onClose={handleClose}
-				aria-labelledby="alert-dialog-title"
-				aria-describedby="alert-dialog-description"
-			>
-				<DialogTitle id="alert-dialog-title">
-					{"Уведомление"}
-				</DialogTitle>
-				<DialogContent>
-					<DialogContentText id="alert-dialog-description">
-						Ваша заявка успешно отправлена
-					</DialogContentText>
-				</DialogContent>
-				<DialogActions>
-					<Button onClick={handleClose}>Отлично</Button>
-				</DialogActions>
-			</Dialog>
+				open={openSuccessDialog}
+				handleClose={handleCloseSuccessDialog}
+				dialoguetext='Ваша заявка успешно отправлена!' />
 		</form>
 
 	)
