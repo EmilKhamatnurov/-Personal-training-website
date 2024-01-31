@@ -1,4 +1,5 @@
 @import '../../common-styles/mixins';
+@import '../../constants/colors.scss';
 .services {
 	display: flex;
 	gap: 10px;
@@ -9,8 +10,7 @@
 
 .service_checked {
 	@include service_styles;
-	background-color: rgb(37, 51, 83);
-	border: 3px solid rgb(37, 51, 83);
+	background-color: $selected-service-bg-color;
 }
 
 @media (max-width: 810px) {
