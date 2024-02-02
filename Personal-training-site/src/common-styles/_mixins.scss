@@ -16,6 +16,9 @@
 	&[type='checkbox'] {
 		accent-color: black;
 	}
+	&[type='file'] {
+		border: inherit;
+	}
 
 	&:hover {
 		border: 2px solid lightgrey;

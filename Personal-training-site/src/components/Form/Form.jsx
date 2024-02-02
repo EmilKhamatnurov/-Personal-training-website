@@ -58,6 +58,15 @@ function Form({ selectedService, setIsLoading }) {
 	return (
 
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+			{/* Пол */}
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Пол</label>
+				<select className={styles.form__select} {...register("gender")}>
+					<option value="мужчина">Мужчина</option>
+					<option value="женщина">Женщина</option>
+				</select>
+			</div>
+
 			{/* Имя и фамилия */}
 			<div className={styles['form__input-block']}>
 				<label className={styles.form__label}>Имя и Фамилия*</label>
@@ -108,11 +117,10 @@ function Form({ selectedService, setIsLoading }) {
 			</div>
 
 			{/* Лекарственные препараты */}
-			<div className={styles['form__input-block']}>
-				<label className={styles.form__label}>Принимаете ли лекарственные препараты?
-					<input type='checkbox' className={styles.form__input}
-						{...register("medicines")} placeholder="Лекарственные препараты" />
-				</label>
+			<div className={styles['form__input-block_row']}>
+				<label className={styles.form__label}>Принимаете ли лекарственные препараты?</label>
+				<input type='checkbox' className={styles.form__input}
+					{...register("medicines")} placeholder="Лекарственные препараты" />
 			</div>
 
 			{/* Анализы крови */}
@@ -121,14 +129,6 @@ function Form({ selectedService, setIsLoading }) {
 				<input type='file' className={styles.form__input} {...register("analysis")} />
 			</div>
 
-			{/* Пол */}
-			<div className={styles['form__input-block']}>
-				<label className={styles.form__label}>Пол</label>
-				<select className={styles.form__select} {...register("gender")}>
-					<option value="мужчина">Мужчина</option>
-					<option value="женщина">Женщина</option>
-				</select>
-			</div>
 			<input className={styles.form__button} type="submit" />
 			{/* SUCCESS Window */}
 			<Dialog
@@ -137,7 +137,7 @@ function Form({ selectedService, setIsLoading }) {
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description">
 				<DialogTitle id="alert-dialog-title">
-					{"Уведомление"}
+					{"Ошибка"}
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
