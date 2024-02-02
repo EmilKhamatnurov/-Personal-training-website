@@ -1,18 +1,20 @@
 import emailjs from '@emailjs/browser'
+// Material UI
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
-
+// React imports
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import styles from './Form.module.scss'
 
-function Form({ selectedService }) {
+function Form({ selectedService, setIsLoading }) {
 	// SUCCESS window
 	const [openSuccessDialog, setOpenSuccessDialog] = useState(false)
+	// SUCCESS Function
 	const handleClickOpenSuccessDialog = () => {
 		setOpenSuccessDialog(true)
 	}
@@ -20,22 +22,36 @@ function Form({ selectedService }) {
 		setOpenSuccessDialog(false)
 	}
 
-	// React Hook Form
+	// ERROR window
+	const [openErrorDialog, setOpenErrorDialog] = useState(false)
+	// ERROR Function
+	const handleClickOpenErrorDialog = () => {
+		setOpenErrorDialog(true)
+	}
+	const handleCloseErrorDialog = () => {
+		setOpenErrorDialog(false)
+	}
+
+	// ОТПРАВКА ФОРМЫ НА ПОЧТУ
 	const { register, handleSubmit, formState: { errors }, } = useForm()
 	const onSubmit = (data) => {
 		const userData = {
 			...data,
 			service: selectedService
 		}
+		setIsLoading(true)
 		emailjs.send(
 			'service_beqcijo', 'template_sswu9sn', userData, '_g4X_2BtwbRFLl7PY'
 		)
 			.then((response) => {
 				console.log('SUCCESS!', response.status, response.text)
+				setIsLoading(false)
 				handleClickOpenSuccessDialog()
 			})
 			.catch((err) => {
 				console.log('FAILED...', err)
+				setIsLoading(false)
+				handleClickOpenErrorDialog()
 			})
 	}
 
@@ -86,8 +102,7 @@ function Form({ selectedService }) {
 				<option value="женщина">Женщина</option>
 			</select>
 			<input className={styles.form__button} type="submit" />
-
-
+			{/* SUCCESS Window */}
 			<Dialog
 				open={openSuccessDialog}
 				onClose={handleCloseSuccessDialog}
@@ -98,11 +113,29 @@ function Form({ selectedService }) {
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
-						{"Все успешно отправлено"}
+						{"Ваша заявка принята. С Вами свяжутся в ближайшее время"}
 					</DialogContentText>
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleCloseSuccessDialog}>Закрыть</Button>
+				</DialogActions>
+			</Dialog>
+			{/* ERROR Window */}
+			<Dialog
+				open={openErrorDialog}
+				onClose={handleCloseErrorDialog}
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description">
+				<DialogTitle id="alert-dialog-title">
+					{"Уведомление"}
+				</DialogTitle>
+				<DialogContent>
+					<DialogContentText id="alert-dialog-description">
+						{"Что-то пошло не так, попробуйте еще раз"}
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleCloseErrorDialog}>Закрыть</Button>
 				</DialogActions>
 			</Dialog>
 		</form>

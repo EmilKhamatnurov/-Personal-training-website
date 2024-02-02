@@ -3,13 +3,15 @@ import Services from '../ Services/ Services'
 import Container from '../Container/Container'
 import Form from '../Form/Form'
 import Heading from '../Heading/Heading'
+import Loader from '../Loader/Loader'
 import Slider from '../Slider/Slider'
 
 function Main() {
 	const [service, setService] = useState('Начинающий')
-
+	const [isFormLoading, setIsFormLoading] = useState(false)
 	return (
 		<>
+			{isFormLoading && <Loader />}
 			<Slider />
 			<Container>
 				<Heading
@@ -25,7 +27,9 @@ function Main() {
 					hrefLink="request" />
 				<Form
 					selectedService={service}
+					setIsLoading={setIsFormLoading}
 				/>
+
 			</Container>
 		</>
 	)

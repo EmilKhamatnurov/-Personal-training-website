@@ -7,7 +7,6 @@ function Slide({
 		<div className={styles.slide}>
 			<p className={styles.slide__title}>{title}</p>
 			<p className={styles.slide__subtitle}>{subtitle}</p>
-			<a href='#request' className={styles.slide__button}>Связаться с нами</a>
 		</div>
 	)
 }
