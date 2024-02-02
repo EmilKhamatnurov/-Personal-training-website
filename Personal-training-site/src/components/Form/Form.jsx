@@ -1,5 +1,11 @@
 import emailjs from '@emailjs/browser'
+import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
+
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import styles from './Form.module.scss'
@@ -13,9 +19,6 @@ function Form({ selectedService }) {
 	const handleCloseSuccessDialog = () => {
 		setOpenSuccessDialog(false)
 	}
-	// ERROR window
-	/* 
-	 */
 
 	// React Hook Form
 	const { register, handleSubmit, formState: { errors }, } = useForm()
@@ -38,16 +41,11 @@ function Form({ selectedService }) {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<label className={styles.form__labe}>Имя*</label>
+			<label className={styles.form__labe}>Имя и Фамилия*</label>
 			<input className={styles.form__input}
-				{...register("name", { required: "Поле обязательно для ввода", minLength: 3 })} placeholder="Имя" />
+				{...register("name", { required: "Поле обязательно для ввода", minLength: 3 })} placeholder="Имя и Фамилия" />
 
-			<label className={styles.form__labe}>Возраст*</label>
-			<input className={styles.form__input} placeholder="Возраст" type="number" {...register("age", {
-				min: 18,
-				max: 99
-			})} />
-
+			{/* Email */}
 			<label className={styles.form__labe}>Email*</label>
 			<input className={styles.form__input} {...register("email", {
 				required: "Поле обязательно для ввода", pattern: {
@@ -56,16 +54,57 @@ function Form({ selectedService }) {
 				}
 			})} placeholder="Адрес электронной почты" />
 
+			{/* Номер телефона */}
+			<label className={styles.form__labe}>Телефон*</label>
+			<input className={styles.form__input} {...register("phone_number", {
+				required: "Поле обязательно для ввода"
+			})} placeholder="Номер телефона" />
+
+			{/* Стаж тренировок */}
+			<label className={styles.form__labe}>Стаж тренировок*</label>
+			<input className={styles.form__input}
+				{...register("experience", { required: "Поле обязательно для ввода", })} placeholder="Стаж тренировок" />
+			{/* Ограничения по здоровью */}
+			<label className={styles.form__labe}>Ограничения по здоровью*</label>
+			<input className={styles.form__input}
+				{...register("health limit", { required: "Поле обязательно для ввода", })} placeholder="Ограничения по здоровью" />
+
+			{/* Лекарственные препараты */}
+			<label className={styles.form__labe}>Принимаете ли лекарственные препараты*</label>
+			<input type='checkbox' className={styles.form__input}
+				{...register("medicines", { required: "Поле обязательно для ввода", })} placeholder="Лекарственные препараты" />
+
+			{/* Анализы крови */}
+			<label className={styles.form__labe}>Прикрепите если есть свежие анализы крови (3 мес.)</label>
+			<input type='file' className={styles.form__input}
+				{...register("analysis", { required: false })} />
+
+			{/* Пол */}
 			<label className={styles.form__labe}>Пол</label>
 			<select className={styles.form__select} {...register("gender")}>
 				<option value="мужчина">Мужчина</option>
 				<option value="женщина">Женщина</option>
 			</select>
 			<input className={styles.form__button} type="submit" />
+
+
 			<Dialog
 				open={openSuccessDialog}
-				handleClose={handleCloseSuccessDialog}
-				dialoguetext='Ваша заявка успешно отправлена!' />
+				onClose={handleCloseSuccessDialog}
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description">
+				<DialogTitle id="alert-dialog-title">
+					{"Уведомление"}
+				</DialogTitle>
+				<DialogContent>
+					<DialogContentText id="alert-dialog-description">
+						{"Все успешно отправлено"}
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleCloseSuccessDialog}>Закрыть</Button>
+				</DialogActions>
+			</Dialog>
 		</form>
 
 	)
