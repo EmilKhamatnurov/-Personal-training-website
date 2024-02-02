@@ -2,9 +2,22 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 35px;
 	margin-bottom: 50px;
-
+	&__input-block {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+	&__label {
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: 300;
+		opacity: 0.8;
+	}
+	&__error {
+		color: red;
+	}
 	&__input {
 		@include form-input;
 	}

@@ -56,51 +56,79 @@ function Form({ selectedService, setIsLoading }) {
 	}
 
 	return (
+
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<label className={styles.form__labe}>Имя и Фамилия*</label>
-			<input className={styles.form__input}
-				{...register("name", { required: "Поле обязательно для ввода", minLength: 3 })} placeholder="Имя и Фамилия" />
+			{/* Имя и фамилия */}
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Имя и Фамилия*</label>
+				{errors.name && <p className={styles.form__error}>{errors.name.message}</p>}
+				<input className={styles.form__input}
+					{...register("name", { required: "Поле обязательно для ввода", minLength: 3 })} placeholder="Имя и Фамилия" />
+			</div>
 
 			{/* Email */}
-			<label className={styles.form__labe}>Email*</label>
-			<input className={styles.form__input} {...register("email", {
-				required: "Поле обязательно для ввода", pattern: {
-					value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-					message: "Некорректный email"
-				}
-			})} placeholder="Адрес электронной почты" />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Email*</label>
+				{errors.email && <p className={styles.form__error}>{errors.email.message}</p>}
+				<input className={styles.form__input} {...register("email", {
+					required: "Поле обязательно для ввода", pattern: {
+						value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+						message: "Некорректный email"
+					}
+				})} placeholder="Адрес электронной почты" />
+			</div>
 
 			{/* Номер телефона */}
-			<label className={styles.form__labe}>Телефон*</label>
-			<input className={styles.form__input} {...register("phone_number", {
-				required: "Поле обязательно для ввода"
-			})} placeholder="Номер телефона" />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Телефон*</label>
+				{errors.phone_number && <p className={styles.form__error}>{errors.phone_number.message}</p>}
+				<input className={styles.form__input} {...register("phone_number", {
+					required: "Проверьте поле ввода",
+					pattern: {
+						value: /^((\+7|7|8)+([-\s()]*\d[-\s()]*){10})$/,
+						message: 'Неверный формат номера телефона'
+					}
+				})} placeholder="Номер телефона" />
+			</div>
 
 			{/* Стаж тренировок */}
-			<label className={styles.form__labe}>Стаж тренировок*</label>
-			<input className={styles.form__input}
-				{...register("experience", { required: "Поле обязательно для ввода", })} placeholder="Стаж тренировок" />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Стаж тренировок*</label>
+				{errors.experience && <p className={styles.form__error}>{errors.experience.message}</p>}
+				<input className={styles.form__input}
+					{...register("experience", { required: "Поле обязательно для ввода", })} placeholder="Стаж тренировок" />
+			</div>
+
 			{/* Ограничения по здоровью */}
-			<label className={styles.form__labe}>Ограничения по здоровью*</label>
-			<input className={styles.form__input}
-				{...register("health limit", { required: "Поле обязательно для ввода", })} placeholder="Ограничения по здоровью" />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Ограничения по здоровью*</label>
+				{errors.health_limit && <p className={styles.form__error}>{errors.health_limit.message}</p>}
+				<input className={styles.form__input}
+					{...register("health_limit", { required: "Поле обязательно для ввода", })} placeholder="Ограничения по здоровью" />
+			</div>
 
 			{/* Лекарственные препараты */}
-			<label className={styles.form__labe}>Принимаете ли лекарственные препараты*</label>
-			<input type='checkbox' className={styles.form__input}
-				{...register("medicines", { required: "Поле обязательно для ввода", })} placeholder="Лекарственные препараты" />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Принимаете ли лекарственные препараты?
+					<input type='checkbox' className={styles.form__input}
+						{...register("medicines")} placeholder="Лекарственные препараты" />
+				</label>
+			</div>
 
 			{/* Анализы крови */}
-			<label className={styles.form__labe}>Прикрепите если есть свежие анализы крови (3 мес.)</label>
-			<input type='file' className={styles.form__input}
-				{...register("analysis", { required: false })} />
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Прикрепите если есть свежие анализы крови (3 мес.)</label>
+				<input type='file' className={styles.form__input} {...register("analysis")} />
+			</div>
 
 			{/* Пол */}
-			<label className={styles.form__labe}>Пол</label>
-			<select className={styles.form__select} {...register("gender")}>
-				<option value="мужчина">Мужчина</option>
-				<option value="женщина">Женщина</option>
-			</select>
+			<div className={styles['form__input-block']}>
+				<label className={styles.form__label}>Пол</label>
+				<select className={styles.form__select} {...register("gender")}>
+					<option value="мужчина">Мужчина</option>
+					<option value="женщина">Женщина</option>
+				</select>
+			</div>
 			<input className={styles.form__button} type="submit" />
 			{/* SUCCESS Window */}
 			<Dialog
