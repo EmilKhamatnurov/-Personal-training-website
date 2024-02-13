@@ -39,6 +39,7 @@ function Form({ selectedService, setIsLoading }) {
 			...data,
 			service: selectedService
 		}
+		console.log(data)
 		setIsLoading(true)
 		emailjs.send(
 			'service_beqcijo', 'template_sswu9sn', userData, '_g4X_2BtwbRFLl7PY'
@@ -137,7 +138,7 @@ function Form({ selectedService, setIsLoading }) {
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description">
 				<DialogTitle id="alert-dialog-title">
-					{"Ошибка"}
+					{"Уведомление"}
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">
@@ -155,7 +156,7 @@ function Form({ selectedService, setIsLoading }) {
 				aria-labelledby="alert-dialog-title"
 				aria-describedby="alert-dialog-description">
 				<DialogTitle id="alert-dialog-title">
-					{"Уведомление"}
+					{"Ошибка"}
 				</DialogTitle>
 				<DialogContent>
 					<DialogContentText id="alert-dialog-description">

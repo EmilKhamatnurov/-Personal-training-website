@@ -28,11 +28,11 @@ function Slider() {
 		<Container styleClass='container_full-width'>
 			<div className={styles.slider}>
 				<SliderBtn
-					img="/prev-btn-image.png"
+					img="./prev-btn-image.png"
 					onClick={prevSlide}
 					styleClass={styles.slider__prevBtn} />
 				<SliderBtn
-					img="/next-btn-image.png"
+					img="./next-btn-image.png"
 					onClick={nextSlide}
 					styleClass={styles.slider__nextBtn} />
 
