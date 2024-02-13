@@ -29,6 +29,19 @@
 	&__input {
 		@include form-input;
 	}
+	&__input_checkbox {
+		@include form-input;
+		width: inherit;
+	}
+	&__input_file {
+		@include form-input;
+		border: none;
+		box-shadow: none;
+		&:hover {
+			border: none;
+			box-shadow: none;
+		}
+	}
 
 	&__select {
 		@include form-input;

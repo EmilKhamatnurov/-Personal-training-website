@@ -119,14 +119,14 @@ function Form({ selectedService, setIsLoading }) {
 			{/* Лекарственные препараты */}
 			<div className={styles['form__input-block_row']}>
 				<label className={styles.form__label}>Принимаете ли лекарственные препараты?</label>
-				<input type='checkbox' className={styles.form__input}
+				<input type='checkbox' className={styles.form__input_checkbox}
 					{...register("medicines")} placeholder="Лекарственные препараты" />
 			</div>
 
 			{/* Анализы крови */}
 			<div className={styles['form__input-block']}>
 				<label className={styles.form__label}>Прикрепите если есть свежие анализы крови (3 мес.)</label>
-				<input type='file' className={styles.form__input} {...register("analysis")} />
+				<input type='file' className={styles.form__input_file} {...register("analysis")} />
 			</div>
 
 			<input className={styles.form__button} type="submit" />

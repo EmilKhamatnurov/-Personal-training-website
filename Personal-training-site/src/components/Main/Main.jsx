@@ -7,7 +7,7 @@ import Loader from '../Loader/Loader'
 import Slider from '../Slider/Slider'
 
 function Main() {
-	const [service, setService] = useState('Начинающий')
+	const [service, setService] = useState('LIGHT')
 	const [isFormLoading, setIsFormLoading] = useState(false)
 	return (
 		<>
@@ -29,7 +29,6 @@ function Main() {
 					selectedService={service}
 					setIsLoading={setIsFormLoading}
 				/>
-
 			</Container>
 		</>
 	)
