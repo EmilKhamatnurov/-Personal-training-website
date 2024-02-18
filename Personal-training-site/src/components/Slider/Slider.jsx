@@ -50,8 +50,7 @@ function Slider() {
 							}}>
 							{/* <Container> */}
 							<Slide
-								title={slide.title}
-								subtitle={slide.subtitle} />
+								title={slide.title} />
 							{/* </Container> */}
 						</div>
 					))}

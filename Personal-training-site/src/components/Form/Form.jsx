@@ -33,13 +33,14 @@ function Form({ selectedService, setIsLoading }) {
 	}
 
 	// ОТПРАВКА ФОРМЫ НА ПОЧТУ
-	const { register, handleSubmit, formState: { errors }, } = useForm()
+	const { register, handleSubmit, reset, formState: { errors }, } = useForm()
 	const onSubmit = (data) => {
+		// К письму добавляется выбранная услуга
 		const userData = {
 			...data,
 			service: selectedService
 		}
-		console.log(data)
+		// console.log(data)
 		setIsLoading(true)
 		emailjs.send(
 			'service_beqcijo', 'template_sswu9sn', userData, '_g4X_2BtwbRFLl7PY'
@@ -48,6 +49,7 @@ function Form({ selectedService, setIsLoading }) {
 				console.log('SUCCESS!', response.status, response.text)
 				setIsLoading(false)
 				handleClickOpenSuccessDialog()
+				reset({})
 			})
 			.catch((err) => {
 				console.log('FAILED...', err)
@@ -121,13 +123,14 @@ function Form({ selectedService, setIsLoading }) {
 			<div className={styles['form__input-block_row']}>
 				<label className={styles.form__label}>Принимаете ли лекарственные препараты?</label>
 				<input type='checkbox' className={styles.form__input_checkbox}
-					{...register("medicines")} placeholder="Лекарственные препараты" />
+					{...register("medicines")} />
 			</div>
 
 			{/* Анализы крови */}
-			<div className={styles['form__input-block']}>
-				<label className={styles.form__label}>Прикрепите если есть свежие анализы крови (3 мес.)</label>
-				<input type='file' className={styles.form__input_file} {...register("analysis")} />
+			<div className={styles['form__input-block_row']}>
+				<label className={styles.form__label}>Есть ли анализы крови?</label>
+				<input type='checkbox' className={styles.form__input_checkbox}
+					{...register("analysis")} />
 			</div>
 
 			<input className={styles.form__button} type="submit" />

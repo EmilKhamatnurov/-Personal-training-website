@@ -4,11 +4,6 @@
 	max-width: 100px;
 }
 
-.textLogo {
-	@include text-logo;
-	color: black;
-}
-.textLogo_white {
-	@include text-logo;
-	color: white;
+.logo {
+	max-width: 100px;
 }

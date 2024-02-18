@@ -13,12 +13,7 @@
 		font-size: 52px;
 		font-weight: 700;
 		margin-bottom: 15px;
-		background-color: #ffffff2b;
-	}
-	&__subtitle {
-		font-size: 36px;
-		margin-bottom: 30px;
-		background-color: #ffffff2b;
+		text-align: center;
 	}
 
 	/* Стили кнопки  Взял и UIVerse */
@@ -68,7 +63,7 @@
 @media (max-width: 576px) {
 	.slide {
 		&__title {
-			font-size: 42px;
+			font-size: 40px;
 			text-align: center;
 			font-weight: 700;
 			margin-bottom: 10px;

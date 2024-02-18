@@ -2,7 +2,7 @@
 	{
 		"id": 1,
 		"title": "LIGHT",
-		"price": "15 000",
+		"price": "10 000",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
 		"list": [
 			"сопровождение в течении месяца (Еженедельный отчет по работе)",
@@ -14,7 +14,7 @@
 	{
 		"id": 2,
 		"title": "MAX",
-		"price": "20 000",
+		"price": "15 000",
 		"label": "popular",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
 		"list": [
@@ -30,7 +30,7 @@
 	{
 		"id": 3,
 		"title": "FULL",
-		"price": "25 000",
+		"price": "20 000",
 		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste non, nemo obcaecati porro",
 		"list": [
 			"сопровождение в течении месяца (Еженедельный отчет по работе)",
