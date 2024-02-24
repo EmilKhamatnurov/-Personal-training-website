@@ -7,7 +7,7 @@ function Logo({ logoColor, text = 'Логотип' }) {
 			<a href="#">
 				<img
 					className={styles.logo}
-					src="/Logo black.png"
+					src="./Logo black.png"
 					alt="Логотип сайта" />
 			</a>
 		)
@@ -17,7 +17,7 @@ function Logo({ logoColor, text = 'Логотип' }) {
 			<a href="#">
 				<img
 					className={styles.logo}
-					src="/Logo white.png"
+					src="./Logo white.png"
 					alt="Логотип сайта" />
 			</a>
 		)
